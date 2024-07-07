@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Type de bière{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau Type de bière</h1>
+
+    {{ include('typebiere/_form.html.twig') }}
+
+    <a href="{{ path('app_typebiere_index') }}">Retour à la liste</a>
+{% endblock %}

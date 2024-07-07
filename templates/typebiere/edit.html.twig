@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition du Type des bières{% endblock %}
+
+{% block body %}
+    <h1>Edition du Type des bières</h1>
+
+    {{ include('typebiere/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_typebiere_index') }}">Retour à la liste</a>
+
+    {{ include('typebiere/_delete_form.html.twig') }}
+{% endblock %}

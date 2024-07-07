@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Types de bières{% endblock %}
+
+{% block body %}
+    <h1>Liste des Types de bières</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom du Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typebiere in typebieres %}
+            <tr>
+                <td>{{ typebiere.id }}</td>
+                <td>{{ typebiere.nomType }}</td>
+                <td>
+                    <a href="{{ path('app_typebiere_show', {'id': typebiere.id}) }}">Afficher</a>
+                    <a href="{{ path('app_typebiere_edit', {'id': typebiere.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Non trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_typebiere_new') }}">Créer un nouveau type</a>
+{% endblock %}
