@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Marques{% endblock %}
+
+{% block body %}
+    <h1>Liste des Marques</h1>
+
+    <a href="{{ path('app_marque_new') }}">Créer une nouvelle marque</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom de la Marque</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for marque in marques %}
+            <tr>
+                <td>{{ marque.id }}</td>
+                <td>{{ marque.nomMarque }}</td>
+                <td>
+                    <a href="{{ path('app_marque_show', {'id': marque.id}) }}">Afficher</a>
+                    <a href="{{ path('app_marque_edit', {'id': marque.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Non trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
