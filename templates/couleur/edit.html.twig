@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition de la Couleur{% endblock %}
+
+{% block body %}
+    <h1>Edition de la Couleur</h1>
+
+    {{ include('couleur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_couleur_index') }}">Retour à la liste</a>
+
+    {{ include('couleur/_delete_form.html.twig') }}
+{% endblock %}
