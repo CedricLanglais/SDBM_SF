@@ -9,8 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>NomPays</th>
-                <th>actions</th>
+                <th>Nom du Pays</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,17 +19,17 @@
                 <td>{{ pay.id }}</td>
                 <td>{{ pay.nomPays }}</td>
                 <td>
-                    <a href="{{ path('app_pays_show', {'id': pay.id}) }}">show</a>
-                    <a href="{{ path('app_pays_edit', {'id': pay.id}) }}">edit</a>
+                    <a href="{{ path('app_pays_show', {'id': pay.id}) }}">Afficher</a>
+                    <a href="{{ path('app_pays_edit', {'id': pay.id}) }}">Éditer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Rien de trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_pays_new') }}">Create new</a>
+    <a href="{{ path('app_pays_new') }}">Créer un nouveau</a>
 {% endblock %}
