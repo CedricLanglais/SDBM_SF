@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Tickets{% endblock %}
+
+{% block body %}
+    <h1>Liste des Tickets</h1>
+
+    <a href="{{ path('app_ticket_new') }}">Créer un nouveau ticket</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Année</th>
+                <th>Numero du ticket</th>
+                <th>Date de la vente</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.annee }}</td>
+                <td>{{ ticket.numeroTicket }}</td>
+                <td>{{ ticket.dateVente ? ticket.dateVente|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_ticket_show', {'id': ticket.id}) }}">Afficher</a>
+                    <a href="{{ path('app_ticket_edit', {'id': ticket.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Non trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
