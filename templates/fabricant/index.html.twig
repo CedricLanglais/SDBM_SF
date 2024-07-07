@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Fabricants{% endblock %}
+
+{% block body %}
+    <h1>Liste des Fabricants</h1>
+
+    <a href="{{ path('app_fabricant_new') }}">Créer un nouveau fabricant</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom du Fabricant</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fabricant in fabricants %}
+            <tr>
+                <td>{{ fabricant.id }}</td>
+                <td>{{ fabricant.nomFabricant }}</td>
+                <td>
+                    <a href="{{ path('app_fabricant_show', {'id': fabricant.id}) }}">Afficher</a>
+                    <a href="{{ path('app_fabricant_edit', {'id': fabricant.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Non trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
