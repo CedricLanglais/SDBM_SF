@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Ventes{% endblock %}
+
+{% block body %}
+    <h1>Liste des Ventes</h1>
+
+    <a href="{{ path('app_vendre_new') }}">Création de la vente</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantitée</th>
+                <th>Prix de la vente</th>
+                <th>Année</th>
+                <th>Numero du ticket</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vendre in vendres %}
+            <tr>
+                <td>{{ vendre.id }}</td>
+                <td>{{ vendre.quantite }}</td>
+                <td>{{ vendre.prixVente }}</td>
+                <td>{{ vendre.annee }}</td>
+                <td>{{ vendre.numeroTicket }}</td>
+                <td>
+                    <a href="{{ path('app_vendre_show', {'id': vendre.id}) }}">Afficher</a>
+                    <a href="{{ path('app_vendre_edit', {'id': vendre.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Non trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

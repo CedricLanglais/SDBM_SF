@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vente{% endblock %}
+
+{% block body %}
+    <h1>Vente</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vendre.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantitée</th>
+                <td>{{ vendre.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Prix de la vente</th>
+                <td>{{ vendre.prixVente }}</td>
+            </tr>
+            <tr>
+                <th>Année</th>
+                <td>{{ vendre.annee }}</td>
+            </tr>
+            <tr>
+                <th>Numero du ticket</th>
+                <td>{{ vendre.numeroTicket }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_vendre_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_vendre_edit', {'id': vendre.id}) }}">Éditer</a>
+
+    {{ include('vendre/_delete_form.html.twig') }}
+{% endblock %}

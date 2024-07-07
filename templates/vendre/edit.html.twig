@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition de la Vente{% endblock %}
+
+{% block body %}
+    <h1>Edition de la Vente</h1>
+
+    {{ include('vendre/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_vendre_index') }}">Retour à la liste</a>
+
+    {{ include('vendre/_delete_form.html.twig') }}
+{% endblock %}
